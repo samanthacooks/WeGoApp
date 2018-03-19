@@ -20,6 +20,7 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: "",
       email: "",
       password: "",
       error: "",
@@ -43,7 +44,7 @@ class Login extends Component {
   async onLoginPressed() {
     this.setState({showProgress: true})
     try {
-      let response = await fetch('https://budgetguru.herokuapp.com/login', {
+      let response = await fetch('https://samanthacooks.herokuapp.com/login', {
                               method: 'POST',
                               headers: {
                                 'Accept': 'application/json',
