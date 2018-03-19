@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, StyleSheet, AlertIOS } from 'react-native';
-import {Info } from '../components/BudgetDetails';
+// import {Info } from '../components/BudgetDetails';
 import colors from '../config/colors';
 import {PrimaryButton} from '../components/Buttons'
 
@@ -21,25 +21,25 @@ class BudgetDetails extends Component{
        this.props.navigation.navigate('GoalAdd',budget)
      }
 
-     handleDelete = () => {
-       fetch("https://budgetguru.herokuapp.com/budgets", {
-         method: "DELETE",
-         headers: {
-           'Content-Type': 'application/json'
-         },
-         body: JSON.stringify({
-           id: this.props.navigation.state.params.id,
-         })
-       })
-         .then((response) => response.json())
-         .then((responseData) => {
-             AlertIOS.alert(
-                 "Successfully deleted"
-             )
-             this.props.navigation.navigate('Budgets')
-         })
-       .done();
-     }
+    //  handleDelete = () => {
+    //    fetch("https://budgetguru.herokuapp.com/budgets", {
+    //      method: "DELETE",
+    //      headers: {
+    //        'Content-Type': 'application/json'
+    //      },
+    //      body: JSON.stringify({
+    //        id: this.props.navigation.state.params.id,
+    //      })
+    //    })
+    //      .then((response) => response.json())
+    //      .then((responseData) => {
+    //          AlertIOS.alert(
+    //              "Successfully deleted"
+    //          )
+    //          this.props.navigation.navigate('Budgets')
+    //      })
+    //    .done();
+    //  }
 
     render(){
       const budget = this.props.navigation.state.params;
