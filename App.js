@@ -5,7 +5,7 @@ import {
   View, 
   StyleSheet
 } from 'react-native';
-import App from './app/index';
+import App from './app/index.js'
 
 const styles = StyleSheet.create({
   container: {
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
 
 
 
-AppRegistry.registerComponent('MyApp', () => App);
+AppRegistry.registerComponent('wegorn', () => App);

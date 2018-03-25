@@ -167,7 +167,6 @@ const styles = StyleSheet.create({
     height: 50,
     marginTop: 10,
     padding: 4,
-    fontSize: 18,
     borderWidth: 1,
     borderColor: '#48bbec',
     width: Platform.OS == 'ios' ? window.width - 20 : 375
@@ -183,12 +182,10 @@ const styles = StyleSheet.create({
     width: 300
   },
   buttonText: {
-    fontSize: 18,
     color: '#FFF',
     alignSelf: 'center'
   },
   heading: {
-    fontSize: 30,
     color: "#F3C152",
   },
   error: {
