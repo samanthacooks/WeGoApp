@@ -11,7 +11,7 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 class App extends Component {
 
   render () {
-      return ( <Tabs /> )
+      return ( <RootStack /> )
   }
 }
 

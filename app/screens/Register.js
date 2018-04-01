@@ -18,11 +18,9 @@ class Register extends Component {
     super();
 
     this.state = {
-      first_name: "",
-      last_name: "",
+      name: "",
       email: "",
       password: "",
-      balance_floor: 0,
       errors: [],
       showProgress: false,
     }
@@ -43,7 +41,7 @@ class Register extends Component {
     async onRegisterPressed(){
       this.setState({showProgress: true})
       try {
-        let response = await fetch('https://budgetguru.herokuapp.com/users', {
+        let response = await fetch('https://samanthacooks.herokuapp.com/users', {
                               method: 'POST',
                               headers: {
                                 'Accept': 'application/json',
@@ -51,11 +49,9 @@ class Register extends Component {
                               },
                               body: JSON.stringify({
                                 user:{
-                                  first_name: this.state.first_name,
-                                  last_name: this.state.last_name,
+                                  first_name: this.state.name,
                                   email: this.state.email,
-                                  password: this.state.password,
-                                  balance_floor: this.state.balance_floor,
+                                  password: this.state.password
                                 }
                               })
                             });
@@ -64,7 +60,7 @@ class Register extends Component {
 
           if (response.status >= 200 && response.status < 300) {
             console.log("res is" + res);
-            this.props.navigation.navigate('Home')
+            this.props.navigation.navigate('Profile')
             let accessToken = res;
             console.log("res token: " + accessToken);
             this.storeToken(accessToken);
@@ -101,17 +97,12 @@ class Register extends Component {
       return (
         <View style={styles.container}>
           <Text style={styles.heading}>
-            Let's Get Started!
+            Create Your Profile!
           </Text>
           <Errors errors={this.state.errors}/>
           <TextInput
-            onChangeText={ (text)=> this.setState({first_name: text}) }
-            style={styles.input} placeholder="First Name"
-            autoCorrect= {false}>
-          </TextInput>
-          <TextInput
-            onChangeText={ (text)=> this.setState({last_name: text}) }
-            style={styles.input} placeholder="Last Name"
+            onChangeText={ (text)=> this.setState({name: text}) }
+            style={styles.input} placeholder="Name"
             autoCorrect= {false}>
           </TextInput>
           <TextInput
@@ -126,10 +117,6 @@ class Register extends Component {
             placeholder="Password"
             secureTextEntry={true}
             autoCorrect= {false}>
-          </TextInput>
-          <TextInput
-            onChangeText={ (text)=> this.setState({balance_floor: text}) }
-            style={styles.input} placeholder="Balance Floor">
           </TextInput>
           <TouchableHighlight onPress={this.onRegisterPressed.bind(this)} style={this.state.pressStatus? styles.pressedButton : styles.button}
                 onHideUnderlay={this._onHideUnderlay.bind(this)}
@@ -174,7 +161,7 @@ const styles = StyleSheet.create({
   button: {
    height: 50,
     justifyContent: 'center',
-    backgroundColor: '#2eba66',
+    backgroundColor: '#bd99db',
     alignSelf: 'center',
     marginTop: 10,
     alignItems: 'center',
@@ -186,7 +173,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },
   heading: {
-    color: "#F3C152",
+    fontSize: 20,
+    color: "#5e5c60",
   },
   error: {
     color: 'red',

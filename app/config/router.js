@@ -8,11 +8,11 @@ import {Icon} from 'react-native-elements';
 // import AddBudget from '../screens/AddBudget';
 import Root from '../screens/Root';
 import Home from '../screens/Home';
-// import Login from '../screens/Login';
-// import Register from '../screens/Register';
+import Login from '../screens/Login';
+import Register from '../screens/Register';
 // import Update from '../screens/Update';
 // import Settings from '../screens/Settings';
-// import Profile from '../screens/Profile';
+import Profile from '../screens/Profile';
 
 
 
@@ -87,7 +87,7 @@ import Home from '../screens/Home';
 
 export const Tabs = TabNavigator({
     Me:{
-    screen: Root,
+    screen: Profile,
     navigationOptions:{
       tabBarLabel: 'Profile',
       tabBarIcon: ({ tintColor }) => <Icon name="person" size={35} color={tintColor} />
@@ -124,18 +124,18 @@ export const RootStack = StackNavigator({
     title: 'Home'
  })
   },
-  // Login:{
-  //     screen: Login,
-  //     navigationOptions:{
-  //       title: 'Login'
-  //     }
-  // },
-  // Register:{
-  //     screen: Register,
-  //     navigationOptions:{
-  //       title: 'Register'
-  //   }
-  // }
+ Login:{
+     screen: Login,
+     navigationOptions:{
+       title: 'Login'
+     }
+ },
+ Register:{
+     screen: Register,
+     navigationOptions:{
+       title: 'Register'
+   }
+ },
    Home:{
      screen: Tabs,
      headerMode: 'screen',

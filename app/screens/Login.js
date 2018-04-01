@@ -13,14 +13,12 @@ import {
 import { StackNavigator, TabNavigator, DrawerNavigator }from 'react-navigation';
 
 
-
 global.ACCESS_TOKEN= "accessToken"
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
       email: "",
       password: "",
       error: "",
@@ -28,6 +26,8 @@ class Login extends Component {
     }
     this.storeToken = this.storeToken.bind(this)
   }
+
+  
 
   storeToken(responseData){
     AsyncStorage.setItem(ACCESS_TOKEN, responseData, (err)=> {
@@ -89,7 +89,7 @@ class Login extends Component {
       return (
         <ScrollView keyboardShouldPersistTaps='always' contentContainerStyle={styles.container}>
           <Text style={styles.heading}>
-            Check Your Account!
+            Login to Your Account!
           </Text>
           <Text style={styles.error}>
             {this.state.error}
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
   button: {
     height: 50,
     justifyContent: 'center',
-    backgroundColor: '#2eba66',
+    backgroundColor: '#bd99db',
     alignSelf: 'center',
     marginTop: 10,
     alignItems: 'center',
@@ -165,8 +165,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },
   heading: {
-    fontSize: 30,
-    color:"#F3C152"
+    fontSize: 20,
+    color:"#5e5c60"
   },
   error: {
     color: 'red',
