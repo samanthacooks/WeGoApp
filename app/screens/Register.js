@@ -41,7 +41,7 @@ class Register extends Component {
     async onRegisterPressed(){
       this.setState({showProgress: true})
       try {
-        let response = await fetch('https://samanthacooks.herokuapp.com/users', {
+        let response = await fetch('http://localhost:3000/users', {
                               method: 'POST',
                               headers: {
                                 'Accept': 'application/json',
@@ -49,7 +49,7 @@ class Register extends Component {
                               },
                               body: JSON.stringify({
                                 user:{
-                                  first_name: this.state.name,
+                                  name: this.state.name,
                                   email: this.state.email,
                                   password: this.state.password
                                 }
@@ -60,7 +60,7 @@ class Register extends Component {
 
           if (response.status >= 200 && response.status < 300) {
             console.log("res is" + res);
-            this.props.navigation.navigate('Profile')
+            this.props.navigation.navigate('Home')
             let accessToken = res;
             console.log("res token: " + accessToken);
             this.storeToken(accessToken);
@@ -74,13 +74,13 @@ class Register extends Component {
 
         let formErrors = JSON.parse(errors);
         let errorsArray = [];
-        for(var key in formErrors) {
-          if(formErrors[key].length > 1) {
-              formErrors[key].map(error => errorsArray.push(`${key} ${error}`));
-          } else {
-              errorsArray.push(`${key} ${formErrors[key]}`);
-          }
-        }
+         for(var key in formErrors) {
+           if(formErrors[key].length > 1) {
+               formErrors[key].forEach(error => errorsArray.push(`${key} ${error}`));
+           } else {
+               errorsArray.push(`${key} ${formErrors[key]}`);
+           }
+         }
        this.setState({errors: errorsArray})
        this.setState({showProgress: false});
       }

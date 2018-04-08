@@ -13,6 +13,8 @@ import Register from '../screens/Register';
 // import Update from '../screens/Update';
 // import Settings from '../screens/Settings';
 import Profile from '../screens/Profile';
+import Events from '../screens/Events';
+import SwipeCards from '../screens/SwipeCards';
 
 
 
@@ -108,7 +110,7 @@ export const Tabs = TabNavigator({
     }
   },
   Events:{
-    screen: Home,
+    screen: SwipeCards,
     navigationOptions:{
       tabBarLabel: 'Events',
       tabBarIcon: ({ tintColor }) => <Icon name="local-activity" size={35} color={tintColor} />
