@@ -25,7 +25,7 @@ import SwipeCards from 'react-native-swipe-cards';
         render() {
           return (
             <View>
-              <Text style={styles.noMoreCardsText}>No more cards</Text>
+              <Text style={styles.noMoreCardsText}>No More Events Available!</Text>
             </View>
           )
         }
